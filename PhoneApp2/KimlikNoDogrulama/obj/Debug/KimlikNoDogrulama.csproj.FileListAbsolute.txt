@@ -1,0 +1,5 @@
+C:\Users\Ahmet_2\Desktop\PhoneApp2\KimlikNoDogrulama\bin\Debug\KimlikNoDogrulama.dll
+C:\Users\Ahmet_2\Desktop\PhoneApp2\KimlikNoDogrulama\bin\Debug\KimlikNoDogrulama.pdb
+C:\Users\Ahmet_2\Desktop\PhoneApp2\KimlikNoDogrulama\obj\Debug\KimlikNoDogrulama.csprojResolveAssemblyReference.cache
+C:\Users\Ahmet_2\Desktop\PhoneApp2\KimlikNoDogrulama\obj\Debug\KimlikNoDogrulama.dll
+C:\Users\Ahmet_2\Desktop\PhoneApp2\KimlikNoDogrulama\obj\Debug\KimlikNoDogrulama.pdb

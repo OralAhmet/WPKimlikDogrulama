@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="KPSPublicSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="Transport" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx"
+                binding="basicHttpBinding" bindingConfiguration="KPSPublicSoap"
+                contract="KPS.KPSPublicSoap" name="KPSPublicSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>
