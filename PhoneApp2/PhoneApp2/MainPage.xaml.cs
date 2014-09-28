@@ -33,13 +33,13 @@ namespace TCKimlikNoDogrulama
 
             ShellTile tile = ShellTile.ActiveTiles.FirstOrDefault();
 
-            IconicTileData icontile = new IconicTileData();
-            icontile.Title = "Kimlik Doğrulama";
-            icontile.IconImage = new Uri("Assets/ApplicationIcon.png", UriKind.Relative);
-            icontile.SmallIconImage = new Uri("Assets/ApplicationIconSmall.png", UriKind.Relative);
-            icontile.WideContent1 = "T.C. Kimlik No Doğrulama";
-            ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), icontile, true);
+            FlipTileData fliptile = new FlipTileData();
+            fliptile.Title = "";
+            fliptile.BackgroundImage = new Uri("Assets/ApplicationIcon.png", UriKind.Relative);
+            fliptile.BackContent = "T.C. Kimlik No Doğrulama";
+            fliptile.SmallBackgroundImage = new Uri("Assets/ApplicationIconSmall.png", UriKind.Relative);
 
+            tile.Update(fliptile);
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -189,6 +189,11 @@ namespace TCKimlikNoDogrulama
             {
                 SetProgressIndicator(false);
             }
+        }
+
+        private void txtTc_BindingValidationError(object sender, ValidationErrorEventArgs e)
+        {
+
         }
 
     }

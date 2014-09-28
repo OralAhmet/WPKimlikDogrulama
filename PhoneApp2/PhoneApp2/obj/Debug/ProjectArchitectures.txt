@@ -1,1 +1,1 @@
-C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\TCKimlikNoDugrulama.csproj;neutral
+E:\GitHub\WPKimlikDogrulama\PhoneApp2\PhoneApp2\TCKimlikNoDugrulama.csproj;neutral

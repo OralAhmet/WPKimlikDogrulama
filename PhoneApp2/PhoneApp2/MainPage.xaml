@@ -12,42 +12,35 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
-
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="61*"/>
-            <RowDefinition Height="10*"/>
-        </Grid.RowDefinitions>
+    <ScrollViewer>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="T.C Kimlik Doğrulama" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Kimlik No Doğrulama" Margin="0,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" HorizontalAlignment="Right" Width="459"/>
-        </StackPanel>
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
-            <Button Content="Sorgula"  Name="btnSorgula" HorizontalAlignment="Left" Margin="10,443,0,0" VerticalAlignment="Top" Click="btnSorgula_Click" RenderTransformOrigin="0.55,0.083" Width="436"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="10,54,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" Name="txtTc" MaxLength="11"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="10,158,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" Name="txtAd"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="10,262,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" Name="txtSoyad"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="10,366,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="156" Name="txtDogum" MaxLength="4"/>
-            <TextBlock HorizontalAlignment="Left" Margin="28,27,0,0" TextWrapping="Wrap" Text="T.C. Kimlik No" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="28,235,0,0" TextWrapping="Wrap" Text="Soyad" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="28,131,0,0" TextWrapping="Wrap" Text="Ad" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="28,339,0,0" TextWrapping="Wrap" Text="Doğum Yılı" VerticalAlignment="Top"/>
-           
-            <!--Uncomment to see an alignment grid to help ensure your controls are
-            aligned on common boundaries.  The image has a top margin of -32px to
-            account for the System Tray. Set this to 0 (or remove the margin altogether)
-            if the System Tray is hidden.
+        <Grid x:Name="LayoutRoot" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="821" Width="480">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
 
-            Before shipping remove this XAML and the image itself.-->
-            <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+            <!--TitlePanel contains the name of the application and page title-->
+            <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+                <TextBlock Text="T.C Kimlik Doğrulama" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+                <TextBlock Text="Kimlik No Doğrulama" Margin="0,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" HorizontalAlignment="Left"  Width="459"/>
+            </StackPanel>
+            <ScrollViewer x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
+                <Grid>
+                    <Button Content="Sorgula"  x:Name="btnSorgula" HorizontalAlignment="Left" Margin="10,497,0,0" VerticalAlignment="Top" Click="btnSorgula_Click" RenderTransformOrigin="0.55,0.083" Width="436"/>
+                    <TextBox HorizontalAlignment="Left" Height="72" Margin="10,78,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" x:Name="txtTc" MaxLength="11" InputScope="Number"/>
+                    <TextBox HorizontalAlignment="Left" Height="72" Margin="10,180,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" x:Name="txtAd"/>
+                    <TextBox HorizontalAlignment="Left" Height="72" Margin="10,286,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="436" x:Name="txtSoyad"/>
+                    <TextBox HorizontalAlignment="Left" Height="72" Margin="10,390,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="156" x:Name="txtDogum" MaxLength="4" InputScope="Number"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,51,0,0" TextWrapping="Wrap" Text="T.C. Kimlik No" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,259,0,0" TextWrapping="Wrap" Text="Soyad" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,153,0,0" TextWrapping="Wrap" Text="Ad" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,363,0,0" TextWrapping="Wrap" Text="Doğum Yılı" VerticalAlignment="Top"/>
+
+                </Grid>
+            </ScrollViewer>
         </Grid>
-        
-    </Grid>
-
-
+    </ScrollViewer>
 </phone:PhoneApplicationPage>

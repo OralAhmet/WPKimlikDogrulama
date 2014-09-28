@@ -150,6 +150,7 @@
     <None Include="Service References\KPS\TCKimlikNoDogrulama.KPS.TCKimlikNoDogrulaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="TCKimlikNoDugrulama_2014_09_28_23_05_17.sap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
