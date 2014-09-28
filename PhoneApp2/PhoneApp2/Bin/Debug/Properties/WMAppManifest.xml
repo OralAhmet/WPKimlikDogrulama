@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="tr-TR" />
+  <Languages xmlns="">
+    <Language code="en-US" />
+  </Languages>
   <App xmlns="" ProductID="{3c3e7acf-d10e-4d88-b5a3-ae74951278f3}" Title="T.C. Kimlik Doğrulama" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PhoneApp2 author" Description="" Publisher="PhoneApp2" PublisherID="{e1a64942-0139-4f00-b0df-ce0aa84ea81f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
@@ -35,4 +38,4 @@
     </ScreenResolutions>
   </App>
 </Deployment>
-<!-- WPSDK Version 8.0.9900 -->
+<!-- WPSDK Version 8.1.12358 -->

@@ -6,9 +6,9 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PhoneApp2.Resources;
+using TCKimlikNoDogrulama.Resources;
 
-namespace PhoneApp2
+namespace TCKimlikNoDogrulama
 {
     public partial class App : Application
     {

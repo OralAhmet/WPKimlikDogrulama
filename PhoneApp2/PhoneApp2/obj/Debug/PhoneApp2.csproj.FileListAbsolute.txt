@@ -17,3 +17,8 @@ C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\PhoneApp2.pdb
 C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\PhoneApp2.g.resources
 C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\PhoneApp2.dll
 C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\PhoneApp2.pdb
+C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\PhoneApp2.csprojResolveAssemblyReference.cache
+C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\TCKimlikNoDogrulama.g.resources
+C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\TCKimlikNoDogrulama.Resources.AppResources.resources
+C:\Users\Ahmet_2\Desktop\PhoneApp2\PhoneApp2\obj\Debug\TCKimlikNoDogrulama.Resources.AppResources.en-US.resources

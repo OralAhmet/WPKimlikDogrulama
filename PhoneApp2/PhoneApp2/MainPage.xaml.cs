@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PhoneApp2.Resources;
+using TCKimlikNoDogrulama.Resources;
 using System.Data;
 using System.Data.Linq.SqlClient;
 using System.Windows.Data;
@@ -17,30 +17,33 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Imaging;
 using Microsoft.Phone.Net.NetworkInformation;
+using TCKimlikNoDogrulama.KPS;
+using TCKimlikNoDogrulama;
+using System.Threading.Tasks;
 
-namespace PhoneApp2
+namespace TCKimlikNoDogrulama
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        KPSPublicSoapClient client = null;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            ShellTile tile = ShellTile.ActiveTiles.First();
-            if (null != tile)
-            {
-                //ÖnYüz
-                StandardTileData data = new StandardTileData();
-                data.BackgroundImage = new Uri(@"/Assets/ApplicationIcon.png", UriKind.Relative);
-                //Arka Yüz
-                data.BackTitle = "T.C. Kimlik";
-                data.BackContent = "T.C. Kimlik";
-                tile.Update(data);
 
-            }
+            ShellTile tile = ShellTile.ActiveTiles.FirstOrDefault();
+
+            IconicTileData icontile = new IconicTileData();
+            icontile.Title = "Kimlik Doğrulama";
+            icontile.IconImage = new Uri("Assets/ApplicationIcon.png", UriKind.Relative);
+            icontile.SmallIconImage = new Uri("Assets/ApplicationIconSmall.png", UriKind.Relative);
+            icontile.WideContent1 = "T.C. Kimlik No Doğrulama";
+            ShellTile.Create(new Uri("/MainPage.xaml", UriKind.Relative), icontile, true);
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
+
         private void btnSorgula_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -48,38 +51,27 @@ namespace PhoneApp2
                 SystemTray.ProgressIndicator.Text = "İşleminiz yapılıyor...";
                 SetProgressIndicator(true);
 
-                if (TCNoKontrolu(txtTC.Text))
+                if (TCNoKontrolu(txtTc.Text))
                 {
-                    KPS.KPSPublicSoapClient client = new KPS.KPSPublicSoapClient();
-                    client.TCKimlikNoDogrulaAsync(Convert.ToInt64(txtTC.Text), txtAd.Text.ToUpper(), txtSoyad.Text.ToUpper(), Convert.ToInt32(txtDogum.Text));
-                    client.TCKimlikNoDogrulaCompleted += client_TCKimlikNoDogrulaCompleted;
+                    KimlikBilgileri bilgiler = new KimlikBilgileri();
+                    bilgiler.TCKimlikNo = Convert.ToInt64(txtTc.Text);
+                    bilgiler.Ad = txtAd.Text.ToUpper();
+                    bilgiler.Soyad = txtSoyad.Text.ToUpper();
+                    bilgiler.DogumYili = Convert.ToInt32(txtDogum.Text);
+                    KimlikNoDogrula(bilgiler);
                 }
                 else
                 {
-                    MessageBox.Show("Tc kimlik numarası yanlış");
+                    MessageBox.Show("Geçersiz kimlik numarası");
                     SetProgressIndicator(false);
+
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            finally
-            {
-
-            }
-        }
-        void client_TCKimlikNoDogrulaCompleted(object sender, KPS.TCKimlikNoDogrulaCompletedEventArgs e)
-        {
-            if (e.Result == true)
-            {
-                MessageBox.Show("Kimlik numaranız doğrulandı");
-            }
-            else
-            {
-                MessageBox.Show("Kimlik numaranız doğrulanmadı.Lütfen bilgilerinizi kontrol ederek tekrar deneyiniz");
-            }
-            SetProgressIndicator(false);
         }
 
         //Tc kimlik no format kontrolü
@@ -121,6 +113,7 @@ namespace PhoneApp2
             else
                 return false;
         }
+
         private void BuildLocalizedApplicationBar()
         {
             // Set the page's ApplicationBar to a new instance of ApplicationBar.
@@ -153,12 +146,50 @@ namespace PhoneApp2
             SystemTray.ProgressIndicator.IsIndeterminate = value;
             SystemTray.ProgressIndicator.IsVisible = value;
         }
+
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             ProgressIndicator pI = new ProgressIndicator();
             SystemTray.SetProgressIndicator(this, pI);
+
+            SystemTray.ProgressIndicator.Text = "İnternet bağlantınız kontrol ediliyor...";
+            SetProgressIndicator(true);
+            if (!checkNetworkConnection())
+            {
+                MessageBox.Show("İnternet bağlantınızı kontrol edin !");
+            }
+            SetProgressIndicator(false);
         }
 
+        public void KimlikNoDogrula(KimlikBilgileri bilgiler)
+        {
+            client = new KPSPublicSoapClient();
+            client.TCKimlikNoDogrulaAsync(bilgiler.TCKimlikNo, bilgiler.Ad, bilgiler.Soyad, bilgiler.DogumYili);
+            client.TCKimlikNoDogrulaCompleted += client_TCKimlikNoDogrulaCompleted;
+        }
+
+        void client_TCKimlikNoDogrulaCompleted(object sender, TCKimlikNoDogrulaCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Result)
+                {
+                    MessageBox.Show("Kimlik numaranız doğrulandı");
+                }
+                else
+                {
+                    MessageBox.Show("Kimlik numaranız doğrulanmadı");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hata oluştu.Tekrar deneyiniz");
+            }
+            finally
+            {
+                SetProgressIndicator(false);
+            }
+        }
 
     }
 }

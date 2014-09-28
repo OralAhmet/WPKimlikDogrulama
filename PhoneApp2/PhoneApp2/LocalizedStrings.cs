@@ -1,6 +1,6 @@
-﻿using PhoneApp2.Resources;
+﻿using TCKimlikNoDogrulama.Resources;
 
-namespace PhoneApp2
+namespace TCKimlikNoDogrulama
 {
     /// <summary>
     /// Provides access to string resources.

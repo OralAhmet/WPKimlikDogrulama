@@ -1,5 +1,7 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="PhoneApp2" EntryPointType="PhoneApp2.App" RuntimeVersion="4.7.50308.0">
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="TCKimlikNoDogrulama" EntryPointType="TCKimlikNoDogrulama.App" RuntimeVersion="6.7.50308.0">
   <Deployment.Parts>
-    <AssemblyPart x:Name="PhoneApp2" Source="PhoneApp2.dll" />
+    <AssemblyPart x:Name="TCKimlikNoDogrulama" Source="TCKimlikNoDogrulama.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls" Source="Microsoft.Phone.Controls.dll" />
+    <AssemblyPart Source="en-US/TCKimlikNoDogrulama.resources.dll" />
   </Deployment.Parts>
 </Deployment>
